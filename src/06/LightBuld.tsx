@@ -32,3 +32,4 @@ function ToogleBulb({setBulb}:any) {
     >Toogle bulb</button>
   )
 }
+
