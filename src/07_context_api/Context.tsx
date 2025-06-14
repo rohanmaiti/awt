@@ -71,7 +71,6 @@ function Child21() {
 // to avoid the syntax of <UserContext.Provider value=... and so on what we can do ?
 // creating a normal componet with all these logic and wrap it with children component
 //   like This --> converting the ugly code into a simple code 
-
 const MyContext = createContext<any | null>(null);
 function UserProvider({children}:{children:any}){
     return (

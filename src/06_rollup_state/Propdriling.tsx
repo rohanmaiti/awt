@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 
 export const Propdriling = () => {
   const [name, setName] = useState<string | null>(null);
-
   useEffect(() => {
     setName("Rohan");
   }, []);
