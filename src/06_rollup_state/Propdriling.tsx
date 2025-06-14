@@ -1,49 +1,42 @@
-// propdrilling is to pass props form Higher level comp to a lower comp in the component tree
-// context api solve the problem of prop drilling
+import React, { useEffect, useState } from "react";
 
-import React, { createContext, useContext, useEffect, useState } from "react";
-
-const UserContext = createContext<any>(null);
-
-export const Propdriling = () => {  
+export const Propdriling = () => {
   const [name, setName] = useState<string | null>(null);
-  useEffect(()=>{
-    setName("Rohan")
-  },[])
-  return <div>
-    <UserContext.Provider value={{
-        name:name,
-        setName
-    }} >
-    <Father/>
-    </UserContext.Provider>
-  </div>;
+
+  useEffect(() => {
+    setName("Rohan");
+  }, []);
+
+  return (
+    <div>
+      <Father name={name} setName={setName} />
+    </div>
+  );
 };
 
-function Father() {
+function Father({ name, setName }: { name: string | null; setName: React.Dispatch<React.SetStateAction<string | null>> }) {
   return (
     <>
-      <Son1 />
-      <Son2 />
+      <Son1 name={name} setName={setName} />
+      <Son2 name={name} setName={setName} />
     </>
   );
 }
 
-function Son1() {
+function Son1({ name, setName }: { name: string | null; setName: React.Dispatch<React.SetStateAction<string | null>> }) {
   return (
     <>
-      <Child11 />
-      <Child12 />
+      <Child11 name={name} setName={setName} />
+      <Child12 name={name} setName={setName} />
     </>
   );
 }
 
-function Son2() {
-  return <Child21 />;
+function Son2({ name, setName }: { name: string | null; setName: React.Dispatch<React.SetStateAction<string | null>> }) {
+  return <Child21 name={name} setName={setName} />;
 }
 
-function Child11() {
-  const {name} = useContext(UserContext);
+function Child11({ name }: { name: string | null; setName: React.Dispatch<React.SetStateAction<string | null>> }) {
   return (
     <>
       <h1>Child11 name Is {name}</h1>
@@ -51,7 +44,7 @@ function Child11() {
   );
 }
 
-function Child12() {
+function Child12({ name }: { name: string | null; setName: React.Dispatch<React.SetStateAction<string | null>> }) {
   return (
     <>
       <h1>Child12</h1>
@@ -59,35 +52,10 @@ function Child12() {
   );
 }
 
-function Child21() {
+function Child21({ name }: { name: string | null; setName: React.Dispatch<React.SetStateAction<string | null>> }) {
   return (
     <>
       <h1>Child21</h1>
     </>
   );
 }
-
-
-// to avoid the syntax of <UserContext.Provider value=... and so on what we can do ?
-// creating a normal componet with all these logic and wrap it with children component
-//   like This 
-
-const Context = createContext<any | null>(null);
-function UserProvider({children}){
-    return (
-        <Context.Provider value="abc">
-            {children}
-        </Context.Provider>
-    )
-}
-
-// how to use it ?
-function App(){
-    return (
-        <UserProvider>
-            <Father/>
-        </UserProvider>
-
-    )
-}
-
