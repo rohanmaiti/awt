@@ -1,6 +1,6 @@
-// Example of rooling up the state
+// Example of rooling up the state || not optimal 
 
-import React, { useState } from 'react'
+import React, { useState, type SetStateAction } from 'react'
 
 export const LightBuld = () => {
   const [bulbOn, setBulb] = useState<boolean>(true);
@@ -15,7 +15,7 @@ export const LightBuld = () => {
 }
 
 
-function BulbOn({bulbOn}:{}){
+function BulbOn({bulbOn}:{bulbOn:boolean}){
   return (
     <>
     {bulbOn ? "Light on" : "Light off"}
@@ -23,7 +23,7 @@ function BulbOn({bulbOn}:{}){
   )
 }
 
-function ToogleBulb({setBulb}:any) {
+function ToogleBulb({setBulb}:{setBulb:any}) {
   return (
     <button
     onClick={()=>{
