@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import { useGetData } from './useGetData'
 import { useCalculate } from './useCalculate'
 import { useName } from './useName';
+
 export default function App(){
 // const result = useGetData('https://dummyjson.com/test');
 // const {result} = useCalculate(10,20,'+');

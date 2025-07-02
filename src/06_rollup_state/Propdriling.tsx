@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-export const Propdriling = () => {
+export default function  Propdriling() {
   const [name, setName] = useState<string | null>(null);
   useEffect(() => {
     setName("Rohan");
@@ -46,7 +46,7 @@ function Child11({ name }: { name: string | null; setName: React.Dispatch<React.
 function Child12({ name }: { name: string | null; setName: React.Dispatch<React.SetStateAction<string | null>> }) {
   return (
     <>
-      <h1>Child12</h1>
+      <h1>Child12 {name} </h1>
     </>
   );
 }

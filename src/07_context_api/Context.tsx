@@ -1,9 +1,9 @@
+// *First understand what is prop drilling ?
 // propdrilling is to pass props form Higher level comp to a lower comp in the component tree
 // context api solve the problem of prop drilling
 
-import React, { createContext, useContext, useEffect, useState } from "react";
-
-const UserContext = createContext<any>(null);
+import { createContext, useContext, useEffect, useState } from "react";
+const UserContext = createContext<any>(null); // this line should be created in a separate file and use it by import and export
 
 export const Context = () => {  
   const [name, setName] = useState<string | null>(null);
@@ -20,7 +20,7 @@ export const Context = () => {
   </div>;
 };
 
-function Father() {
+export function Father() {
   return (
     <>
       <Son1 />
@@ -68,25 +68,4 @@ function Child21() {
 }
 
 
-// to avoid the syntax of <UserContext.Provider value=... and so on what we can do ?
-// creating a normal componet with all these logic and wrap it with children component
-//   like This --> converting the ugly code into a simple code 
-const MyContext = createContext<any | null>(null);
-function UserProvider({children}:{children:any}){
-    return (
-        <MyContext.Provider value="abc">
-            {children}
-        </MyContext.Provider>
-    )
-}
-
-// how to use it ?
-function App(){
-    return (
-        <UserProvider>
-            <Father/>
-        </UserProvider>
-
-    )
-}
 
