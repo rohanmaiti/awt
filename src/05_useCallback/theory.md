@@ -8,5 +8,6 @@
  *    only if the porps of the child compoent are unchanged
  * 4. What does the useCallback does ?
  *    it helps to stop re-renders when referance types are passed in through prop
- * 5. then what is the differcence between memo and useCallback
- *
+ * 5. function <-- useCallback()
+ * 6. value <--- useMemo()
+ * 7. you can have multiple useCallback in a component
