@@ -7,9 +7,16 @@
 // export default App;
 
 // * useEffect
-import App from "./03_useEffect/App";
-export default App
+// import App from "./03_useEffect/App";
+// export default App
 
+//* useMemo
+// import App from './04_useMemo/App'
+// export default App;
+
+// * useCallback
+import App from './05_useCallback/App';
+export default App;
 
 // * rolling up state and prop drilling
 // import  App from "./06_rollup_state/App";
