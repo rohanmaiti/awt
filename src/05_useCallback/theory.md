@@ -1,3 +1,5 @@
+ * if you ever want to memoize a function --> then use useCallback()
+ * useCallback is about not rendering the child component, if the function has not / does not need to change accross rerenders 
 
  * How react works / renders component
  * 1. if any state component changes the whole component re-renders
