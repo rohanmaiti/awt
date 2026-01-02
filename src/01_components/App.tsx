@@ -5,7 +5,13 @@ import List from "./components/List";
 
 export default function App(){
     const array = ['Hii','Rohan','How','are','you?']
-    return (<>
+    const obj = {
+        name: "Rohan",
+        age: 22
+    }
+
+    return (
+    <>
     {/* creating first component  */}
     <Header/>
     {/* props passing in functional component  */}
@@ -24,5 +30,9 @@ export default function App(){
 
     {/* how array is rendered in jsx ?? */}
     {array}
-    </>)
+
+    {/* see how object is rendered in jsx, this will give error */}
+    {/* {obj}  */}
+    </>
+    )
 }

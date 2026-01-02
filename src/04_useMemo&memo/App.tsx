@@ -13,19 +13,19 @@
 //   };
 
 //   //* without useMemo
-//   //   let result = 0;
-//   //   for (let i = 1; i <= input; i++) {
-//   //     result += i;
-//   //   }
+//     // let result = 0;
+//     // for (let i = 1; i <= input; i++) {
+//     //   result += i;
+//     // }
 
 //   //* with useMemo
-//   const result = useMemo(() => {
-//     let ans = 0;
-//     for (let i = 1; i <= input; i++) {
-//       ans += i;
-//     }
-//     return ans;
-//   }, [input]);
+//   // const result = useMemo(() => {
+//   //   let ans = 0;
+//   //   for (let i = 1; i <= input; i++) {
+//   //     ans += i;
+//   //   }
+//   //   return ans;
+//   // }, [input]);
 
 //   return (
 //     <>
@@ -83,29 +83,29 @@
 // so it should not re-render each time the parent re-renders
 
 // * below is the memo code -->
-import React, { memo, useState } from 'react';
-function App(){
-  console.log('app component re-renders');
-  const [count, setCount] = useState<number>(0);
-  const number:number = 1;
-  return (
-  <React.Fragment>
-  <div>
-    <button onClick={()=> setCount(count+1)}  >click { count }</button>
-  </div>
-  <br />
-  <div>
-     <Button number={number} />
-  </div>
-  </React.Fragment>)
-}
+// import React, { memo, useState } from 'react';
+// function App(){
+//   console.log('app component re-renders');
+//   const [count, setCount] = useState<number>(0);
+//   const number:number = 1;
+//   return (
+//   <React.Fragment>
+//   <div>
+//     <button onClick={()=> setCount(count+1)}  >click { count }</button>
+//   </div>
+//   <br />
+//   <div>
+//      <Button number={number} />
+//   </div>
+//   </React.Fragment>)
+// }
 
-const Button = memo(function ({number}:{number:number}){
-  console.log('button component re-renders')
-  return (
-   <button>click me </button>
-  )
-})
-export default App;
+// const Button = memo(function ({number}:{number:number}){
+//   console.log('button component re-renders')
+//   return (
+//    <button>click me </button>
+//   )
+// })
+// export default App;
 // * cautiton : if the passing prop is string and number then only memo works else if the props is 
 // of type referance like-->  object, array or function, it will not work --> then we'll have to use useCallback
