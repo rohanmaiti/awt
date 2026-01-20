@@ -5,10 +5,10 @@ import List from "./components/List";
 
 export default function App(){
     const array = ['Hii','Rohan','How','are','you?']
-    const obj = {
-        name: "Rohan",
-        age: 22
-    }
+    // const obj = {
+    //     name: "Rohan",
+    //     age: 22
+    // }
 
     return (
     <>

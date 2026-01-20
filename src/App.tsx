@@ -6,6 +6,9 @@
 // import App from "./02_useState/App";
 // export default App;
 
+// * Routing
+import App from "./04_routing/App";
+export default App;
 // * useEffect
 // import App from "./03_useEffect/App";
 // export default App
